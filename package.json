@@ -1,0 +1,23 @@
+{
+  "name": "idle-dwarf",
+  "version": "1.0.0",
+  "description": "idle game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nukeop/idle-dwarf.git"
+  },
+  "keywords": [
+    "idle",
+    "incremental"
+  ],
+  "author": "nukeop",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nukeop/idle-dwarf/issues"
+  },
+  "homepage": "https://github.com/nukeop/idle-dwarf#readme"
+}
