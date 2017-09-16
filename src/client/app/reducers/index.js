@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({
+import MinerReducer from './miner';
 
+const rootReducer = combineReducers({
+  miner: MinerReducer
 });
 
 export default rootReducer;

