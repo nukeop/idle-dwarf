@@ -1,2 +1,0 @@
-# idle-dwarf
-idle game
