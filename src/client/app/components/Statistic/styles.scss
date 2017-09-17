@@ -3,6 +3,12 @@
   flex-flow: column;
   margin: 0.5rem 0.5rem;
 
+  &.small {
+    .value {
+      font-size: 2rem;
+    }
+  }
+
   .value {
     font-size: 4rem;
     text-align: center;

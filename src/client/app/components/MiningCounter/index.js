@@ -12,14 +12,28 @@ class MiningCounter extends React.Component {
   render() {
     return (
       <div className={styles.mining_counter}>
-        <Statistic
-          value={this.props.hashesAccepted}
-          label='Hashes accepted'
-        />
-        <Statistic
-            value={this.props.hashesPerSecond.toFixed(2)}
-            label='Hashes per second'
-        />
+        <div className={styles.row}>
+          <Statistic
+            inverted
+            small
+            value={
+              this.props.running
+              ? <span className={styles.green}>Running</span>
+              : <span className={styles.red}>Stopped</span>
+            }
+            label='The miner is'
+          />
+        </div>
+        <div className={styles.row}>
+          <Statistic
+            value={this.props.hashesAccepted}
+            label='Hashes accepted'
+          />
+          <Statistic
+              value={this.props.hashesPerSecond.toFixed(2)}
+              label='Hashes per second'
+          />
+        </div>
       </div>
     );
   }

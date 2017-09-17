@@ -1,5 +1,22 @@
+@import '../../colors';
+
 .mining_counter {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   justify-content: center;
+
+  .row {
+    display: flex;
+    flex-flow: row;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
 }

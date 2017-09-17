@@ -31,6 +31,7 @@ class App extends React.Component {
           <MiningCounter
             hashesAccepted={this.props.miner.hashesAccepted}
             hashesPerSecond={this.props.miner.hashesPerSecond}
+            running={this.props.miner.running}
           />
         </div>
       </div>
