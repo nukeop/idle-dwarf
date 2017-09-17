@@ -65,6 +65,62 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/classnames/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return classNames;
+		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+
+/***/ }),
+
 /***/ "./node_modules/create-react-class/factory.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -987,11 +1043,14 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".mining_counter {\n  display: flex;\n  flex-flow: row;\n  justify-content: center; }\n", ""]);
+exports.push([module.i, ".mining_counter {\n  display: flex;\n  flex-flow: column;\n  justify-content: center; }\n  .mining_counter .row {\n    display: flex;\n    flex-flow: row;\n    flex: 1 1 auto;\n    justify-content: center; }\n\n.red {\n  color: #E74C3C; }\n\n.green {\n  color: #2ECC71; }\n", ""]);
 
 // exports
 exports.locals = {
-	"mining_counter": "mining_counter"
+	"mining_counter": "mining_counter",
+	"row": "row",
+	"red": "red",
+	"green": "green"
 };
 
 /***/ }),
@@ -1004,11 +1063,12 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".statistic {\n  display: flex;\n  flex-flow: column;\n  margin: 0.5rem 0.5rem; }\n  .statistic .value {\n    font-size: 4rem;\n    text-align: center; }\n  .statistic .label {\n    font-size: 1rem;\n    font-weight: bold;\n    text-align: center; }\n", ""]);
+exports.push([module.i, ".statistic {\n  display: flex;\n  flex-flow: column;\n  margin: 0.5rem 0.5rem; }\n  .statistic.small .value {\n    font-size: 2rem; }\n  .statistic .value {\n    font-size: 4rem;\n    text-align: center; }\n  .statistic .label {\n    font-size: 1rem;\n    font-weight: bold;\n    text-align: center; }\n", ""]);
 
 // exports
 exports.locals = {
 	"statistic": "statistic",
+	"small": "small",
 	"value": "value",
 	"label": "label"
 };
@@ -30973,7 +31033,8 @@ var App = function (_React$Component) {
           }),
           _react2.default.createElement(_MiningCounter2.default, {
             hashesAccepted: this.props.miner.hashesAccepted,
-            hashesPerSecond: this.props.miner.hashesPerSecond
+            hashesPerSecond: this.props.miner.hashesPerSecond,
+            running: this.props.miner.running
           })
         )
       );
@@ -31334,14 +31395,36 @@ var MiningCounter = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: _styles2.default.mining_counter },
-        _react2.default.createElement(_Statistic2.default, {
-          value: this.props.hashesAccepted,
-          label: 'Hashes accepted'
-        }),
-        _react2.default.createElement(_Statistic2.default, {
-          value: this.props.hashesPerSecond.toFixed(2),
-          label: 'Hashes per second'
-        })
+        _react2.default.createElement(
+          'div',
+          { className: _styles2.default.row },
+          _react2.default.createElement(_Statistic2.default, {
+            inverted: true,
+            small: true,
+            value: this.props.running ? _react2.default.createElement(
+              'span',
+              { className: _styles2.default.green },
+              'Running'
+            ) : _react2.default.createElement(
+              'span',
+              { className: _styles2.default.red },
+              'Stopped'
+            ),
+            label: 'The miner is'
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _styles2.default.row },
+          _react2.default.createElement(_Statistic2.default, {
+            value: this.props.hashesAccepted,
+            label: 'Hashes accepted'
+          }),
+          _react2.default.createElement(_Statistic2.default, {
+            value: this.props.hashesPerSecond.toFixed(2),
+            label: 'Hashes per second'
+          })
+        )
       );
     }
   }]);
@@ -31401,11 +31484,17 @@ var _react = __webpack_require__("./node_modules/react/react.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _classnames2 = __webpack_require__("./node_modules/classnames/index.js");
+
+var _classnames3 = _interopRequireDefault(_classnames2);
+
 var _styles = __webpack_require__("./src/client/app/components/Statistic/styles.scss");
 
 var _styles2 = _interopRequireDefault(_styles);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -31425,15 +31514,24 @@ var Statistic = function (_React$Component) {
   _createClass(Statistic, [{
     key: 'render',
     value: function render() {
+
       return _react2.default.createElement(
         'div',
-        { className: _styles2.default.statistic },
-        _react2.default.createElement(
+        { className: (0, _classnames3.default)(_styles2.default.statistic, _defineProperty({}, '' + _styles2.default.small, this.props.small)) },
+        this.props.inverted ? _react2.default.createElement(
+          'div',
+          { className: _styles2.default.label },
+          this.props.label
+        ) : _react2.default.createElement(
           'div',
           { className: _styles2.default.value },
           this.props.value
         ),
-        _react2.default.createElement(
+        this.props.inverted ? _react2.default.createElement(
+          'div',
+          { className: _styles2.default.value },
+          this.props.value
+        ) : _react2.default.createElement(
           'div',
           { className: _styles2.default.label },
           this.props.label
