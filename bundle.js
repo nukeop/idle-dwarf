@@ -954,7 +954,22 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "html, body {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  font-family: 'Lato'; }\n", ""]);
+exports.push([module.i, "html, body {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: 'Lato'; }\n\nbutton {\n  padding: 1rem;\n  border: none;\n  background: #3498DB;\n  color: #ECF0F1;\n  border-radius: 0.5rem;\n  text-transform: capitalize; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/MinerControls/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -23991,6 +24006,177 @@ module.exports = validateDOMNesting;
 
 /***/ }),
 
+/***/ "./node_modules/react-fontawesome/lib/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__("./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _screenReaderStyles = __webpack_require__("./node_modules/react-fontawesome/lib/screen-reader-styles.js");
+
+var _screenReaderStyles2 = _interopRequireDefault(_screenReaderStyles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * A React component for the font-awesome icon library.
+ *
+ * @param {String} [ariaLabel] An extra accessibility label to put on the icon
+ * @param {Boolean} [border=false] Whether or not to show a border radius
+ * @param {String} [className] An extra set of CSS classes to add to the component
+ * @param {Object} [cssModule] Option to pass FontAwesome CSS as a module
+ * @param {Boolean} [fixedWidth=false] Make buttons fixed width
+ * @param {String} [flip=false] Flip the icon's orientation.
+ * @param {Boolean} [inverse=false]Inverse the icon's color
+ * @param {String} name Name of the icon to use
+ * @param {Boolean} [pulse=false] Rotate icon with 8 steps, rather than smoothly
+ * @param {Number} [rotate] The degress to rotate the icon by
+ * @param {String} [size] The icon scaling size
+ * @param {Boolean} [spin=false] Spin the icon
+ * @param {String} [stack] Stack an icon on top of another
+ * @param {String} [tag=span] The HTML tag to use as a string, eg 'i' or 'em'
+ * @module FontAwesome
+ * @type {ReactClass}
+ */
+var FontAwesome = function (_React$Component) {
+  _inherits(FontAwesome, _React$Component);
+
+  function FontAwesome() {
+    _classCallCheck(this, FontAwesome);
+
+    var _this = _possibleConstructorReturn(this, (FontAwesome.__proto__ || Object.getPrototypeOf(FontAwesome)).call(this));
+
+    _this.displayName = 'FontAwesome';
+    return _this;
+  }
+
+  _createClass(FontAwesome, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          border = _props.border,
+          cssModule = _props.cssModule,
+          className = _props.className,
+          fixedWidth = _props.fixedWidth,
+          flip = _props.flip,
+          inverse = _props.inverse,
+          name = _props.name,
+          pulse = _props.pulse,
+          rotate = _props.rotate,
+          size = _props.size,
+          spin = _props.spin,
+          stack = _props.stack,
+          _props$tag = _props.tag,
+          tag = _props$tag === undefined ? 'span' : _props$tag,
+          ariaLabel = _props.ariaLabel,
+          props = _objectWithoutProperties(_props, ['border', 'cssModule', 'className', 'fixedWidth', 'flip', 'inverse', 'name', 'pulse', 'rotate', 'size', 'spin', 'stack', 'tag', 'ariaLabel']);
+
+      var classNames = [];
+
+      if (cssModule) {
+        classNames.push(cssModule['fa']);
+        classNames.push(cssModule['fa-' + name]);
+        size && classNames.push(cssModule['fa-' + size]);
+        spin && classNames.push(cssModule['fa-spin']);
+        pulse && classNames.push(cssModule['fa-pulse']);
+        border && classNames.push(cssModule['fa-border']);
+        fixedWidth && classNames.push(cssModule['fa-fw']);
+        inverse && classNames.push(cssModule['fa-inverse']);
+        flip && classNames.push(cssModule['fa-flip-' + flip]);
+        rotate && classNames.push(cssModule['fa-rotate-' + rotate]);
+        stack && classNames.push(cssModule['fa-stack-' + stack]);
+      } else {
+        classNames.push('fa');
+        classNames.push('fa-' + name);
+        size && classNames.push('fa-' + size);
+        spin && classNames.push('fa-spin');
+        pulse && classNames.push('fa-pulse');
+        border && classNames.push('fa-border');
+        fixedWidth && classNames.push('fa-fw');
+        inverse && classNames.push('fa-inverse');
+        flip && classNames.push('fa-flip-' + flip);
+        rotate && classNames.push('fa-rotate-' + rotate);
+        stack && classNames.push('fa-stack-' + stack);
+      }
+
+      // Add any custom class names at the end.
+      className && classNames.push(className);
+      return _react2.default.createElement(tag, _extends({}, props, { 'aria-hidden': true, className: classNames.join(' ') }), ariaLabel ? _react2.default.createElement('span', { style: _screenReaderStyles2.default }, ariaLabel) : null);
+    }
+  }]);
+
+  return FontAwesome;
+}(_react2.default.Component);
+
+FontAwesome.propTypes = {
+  ariaLabel: _propTypes2.default.string,
+  border: _propTypes2.default.bool,
+  className: _propTypes2.default.string,
+  cssModule: _propTypes2.default.object,
+  fixedWidth: _propTypes2.default.bool,
+  flip: _propTypes2.default.oneOf(['horizontal', 'vertical']),
+  inverse: _propTypes2.default.bool,
+  name: _propTypes2.default.string.isRequired,
+  pulse: _propTypes2.default.bool,
+  rotate: _propTypes2.default.oneOf([90, 180, 270]),
+  size: _propTypes2.default.oneOf(['lg', '2x', '3x', '4x', '5x']),
+  spin: _propTypes2.default.bool,
+  stack: _propTypes2.default.oneOf(['1x', '2x']),
+  tag: _propTypes2.default.string
+};
+
+exports.default = FontAwesome;
+module.exports = exports['default'];
+
+/***/ }),
+
+/***/ "./node_modules/react-fontawesome/lib/screen-reader-styles.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  position: 'absolute',
+  width: '1px',
+  height: '1px',
+  padding: '0px',
+  margin: '-1px',
+  overflow: 'hidden',
+  clip: 'rect(0px, 0px, 0px, 0px)',
+  border: '0px'
+};
+module.exports = exports['default'];
+
+/***/ }),
+
 /***/ "./node_modules/react-redux/es/components/Provider.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -30680,9 +30866,31 @@ var _react = __webpack_require__("./node_modules/react/react.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactFontawesome = __webpack_require__("./node_modules/react-fontawesome/lib/index.js");
+
+var _reactFontawesome2 = _interopRequireDefault(_reactFontawesome);
+
+var _reactRedux = __webpack_require__("./node_modules/react-redux/es/index.js");
+
+var _redux = __webpack_require__("./node_modules/redux/es/index.js");
+
+var _miner = __webpack_require__("./src/client/app/actions/miner.js");
+
+var MinerActions = _interopRequireWildcard(_miner);
+
+var _Miner = __webpack_require__("./src/client/app/components/Miner/index.js");
+
+var _Miner2 = _interopRequireDefault(_Miner);
+
+var _MinerControls = __webpack_require__("./src/client/app/components/MinerControls/index.js");
+
+var _MinerControls2 = _interopRequireDefault(_MinerControls);
+
 var _styles = __webpack_require__("./src/client/app/styles.scss");
 
 var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30698,35 +30906,82 @@ var App = function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
-
-    _this.state = {
-      miner: null
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
   }
 
   _createClass(App, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      var miner = new CoinHive.Anonymous('pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg');
-      miner.setThrottle(0.5);
-      miner.start();
-      this.setState({
-        miner: miner
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: _styles2.default.app });
+      return _react2.default.createElement(
+        'div',
+        { className: _styles2.default.app },
+        _react2.default.createElement(_Miner2.default, {
+          siteKey: 'pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg',
+          throttle: 0.5,
+          running: this.props.miner.running
+        }),
+        _react2.default.createElement(_MinerControls2.default, {
+          actions: this.props.actions
+        })
+      );
     }
   }]);
 
   return App;
 }(_react2.default.Component);
 
-exports.default = App;
+function mapStateToProps(state) {
+  return {
+    miner: state.miner
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: (0, _redux.bindActionCreators)(Object.assign({}, MinerActions), dispatch)
+  };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+
+/***/ }),
+
+/***/ "./src/client/app/actions/miner.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hashAccepted = hashAccepted;
+exports.startMining = startMining;
+exports.stopMining = stopMining;
+var HASH_ACCEPTED = exports.HASH_ACCEPTED = 'HASH_ACCEPTED';
+var START_MINING = exports.START_MINING = 'START_MINING';
+var STOP_MINING = exports.STOP_MINING = 'STOP_MINING';
+
+function hashAccepted(n) {
+  return {
+    type: HASH_ACCEPTED,
+    payload: n
+  };
+}
+
+function startMining() {
+  return {
+    type: START_MINING,
+    payload: null
+  };
+}
+
+function stopMining() {
+  return {
+    type: STOP_MINING,
+    payload: null
+  };
+}
 
 /***/ }),
 
@@ -30752,6 +31007,199 @@ if(false) {
 	if(!content.locals) {
 		module.hot.accept("!!../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../node_modules/sass-loader/lib/loader.js!./app.global.scss", function() {
 			var newContent = require("!!../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../node_modules/sass-loader/lib/loader.js!./app.global.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/client/app/components/Miner/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Miner = function (_React$Component) {
+  _inherits(Miner, _React$Component);
+
+  function Miner(props) {
+    _classCallCheck(this, Miner);
+
+    var _this = _possibleConstructorReturn(this, (Miner.__proto__ || Object.getPrototypeOf(Miner)).call(this, props));
+
+    _this.state = {
+      miner: null
+    };
+    return _this;
+  }
+
+  _createClass(Miner, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _props = this.props,
+          siteKey = _props.siteKey,
+          throttle = _props.throttle,
+          running = _props.running;
+
+
+      if (!siteKey) {
+        console.error('React Miner has no site key, and cannot start.');
+        return;
+      }
+
+      var miner = new CoinHive.Anonymous(siteKey);
+      if (throttle) {
+        miner.setThrottle(throttle);
+      }
+
+      this.setState({
+        miner: miner
+      });
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var siteKey = nextProps.siteKey,
+          throttle = nextProps.throttle,
+          running = nextProps.running;
+
+
+      if (running && this.state.miner) {
+        this.state.miner.start();
+      } else if (this.state.miner) {
+        console.log('derp');
+        this.state.miner.stop();
+      }
+
+      if (throttle) {
+        this.state.miner.setThrottle(throttle);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return null;
+    }
+  }]);
+
+  return Miner;
+}(_react2.default.Component);
+
+exports.default = Miner;
+
+/***/ }),
+
+/***/ "./src/client/app/components/MinerControls/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = __webpack_require__("./src/client/app/components/MinerControls/styles.scss");
+
+var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MinerControls = function (_React$Component) {
+  _inherits(MinerControls, _React$Component);
+
+  function MinerControls(props) {
+    _classCallCheck(this, MinerControls);
+
+    return _possibleConstructorReturn(this, (MinerControls.__proto__ || Object.getPrototypeOf(MinerControls)).call(this, props));
+  }
+
+  _createClass(MinerControls, [{
+    key: 'render',
+    value: function render() {
+      var actions = this.props.actions;
+
+
+      return _react2.default.createElement(
+        'div',
+        { className: _styles2.default.miner_controls_container },
+        _react2.default.createElement(
+          'button',
+          { onClick: actions.startMining },
+          'Start mining'
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: actions.stopMining },
+          'Stop mining'
+        )
+      );
+    }
+  }]);
+
+  return MinerControls;
+}(_react2.default.Component);
+
+exports.default = MinerControls;
+
+/***/ }),
+
+/***/ "./src/client/app/components/MinerControls/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/MinerControls/styles.scss");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../../../node_modules/sass-loader/lib/loader.js!./styles.scss", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../../../node_modules/sass-loader/lib/loader.js!./styles.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -30822,9 +31270,59 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__("./node_modules/redux/es/index.js");
 
-var rootReducer = (0, _redux.combineReducers)({});
+var _miner = __webpack_require__("./src/client/app/reducers/miner.js");
+
+var _miner2 = _interopRequireDefault(_miner);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rootReducer = (0, _redux.combineReducers)({
+  miner: _miner2.default
+});
 
 exports.default = rootReducer;
+
+/***/ }),
+
+/***/ "./src/client/app/reducers/miner.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = MinerReducer;
+
+var _miner = __webpack_require__("./src/client/app/actions/miner.js");
+
+var initialState = {
+  running: false,
+  hashesAccepted: 0
+};
+
+function MinerReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _miner.HASH_ACCEPTED:
+      return Object.assign({}, state, {
+        hashesAccepted: action.payload
+      });
+    case _miner.START_MINING:
+      return Object.assign({}, state, {
+        running: true
+      });
+    case _miner.STOP_MINING:
+      return Object.assign({}, state, {
+        running: false
+      });
+    default:
+      return state;
+  }
+}
 
 /***/ }),
 
