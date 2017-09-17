@@ -954,7 +954,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "html, body {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: 'Lato'; }\n\nbutton {\n  padding: 1rem;\n  border: none;\n  background: #3498DB;\n  color: #ECF0F1;\n  border-radius: 0.5rem;\n  text-transform: capitalize; }\n", ""]);
+exports.push([module.i, "html, body {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  margin: 0;\n  font-family: 'Lato';\n  background: #ECF0F1;\n  color: #2C3E50; }\n\nbody {\n  display: flex;\n  flex-flow: column; }\n\nbutton {\n  padding: 0.75rem 1rem 0.75rem 1rem;\n  margin: 0.5rem 0.5rem;\n  border: none;\n  background: #3498DB;\n  color: #ECF0F1;\n  border-radius: 0.25rem;\n  text-transform: uppercase;\n  transition: 0.25s; }\n  button:hover, button:focus, button:active {\n    background: #2980B9;\n    outline: none; }\n", ""]);
 
 // exports
 
@@ -969,10 +969,49 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".miner_controls_container {\n  display: flex;\n  flex-flow: column;\n  flex: 1 1 auto;\n  justify-content: center; }\n  .miner_controls_container .row {\n    display: flex;\n    flex-flow: row;\n    flex: 1 1 auto;\n    justify-content: center; }\n", ""]);
 
 // exports
+exports.locals = {
+	"miner_controls_container": "miner_controls_container",
+	"row": "row"
+};
 
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/MiningCounter/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".mining_counter {\n  display: flex;\n  flex-flow: row;\n  justify-content: center; }\n", ""]);
+
+// exports
+exports.locals = {
+	"mining_counter": "mining_counter"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/Statistic/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".statistic {\n  display: flex;\n  flex-flow: column;\n  margin: 0.5rem 0.5rem; }\n  .statistic .value {\n    font-size: 4rem;\n    text-align: center; }\n  .statistic .label {\n    font-size: 1rem;\n    font-weight: bold;\n    text-align: center; }\n", ""]);
+
+// exports
+exports.locals = {
+	"statistic": "statistic",
+	"value": "value",
+	"label": "label"
+};
 
 /***/ }),
 
@@ -984,11 +1023,12 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".app {\n  position: relative;\n  width: 100%;\n  height: 100%; }\n", ""]);
+exports.push([module.i, ".app {\n  display: flex;\n  flex-flow: column;\n  position: relative;\n  width: 100%;\n  height: 100%;\n  align-items: center;\n  justify-content: center; }\n\n.app_container {\n  position: relative;\n  width: 25rem;\n  height: 25rem; }\n", ""]);
 
 // exports
 exports.locals = {
-	"app": "app"
+	"app": "app",
+	"app_container": "app_container"
 };
 
 /***/ }),
@@ -30886,6 +30926,10 @@ var _MinerControls = __webpack_require__("./src/client/app/components/MinerContr
 
 var _MinerControls2 = _interopRequireDefault(_MinerControls);
 
+var _MiningCounter = __webpack_require__("./src/client/app/components/MiningCounter/index.js");
+
+var _MiningCounter2 = _interopRequireDefault(_MiningCounter);
+
 var _styles = __webpack_require__("./src/client/app/styles.scss");
 
 var _styles2 = _interopRequireDefault(_styles);
@@ -30915,14 +30959,23 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: _styles2.default.app },
-        _react2.default.createElement(_Miner2.default, {
-          siteKey: 'pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg',
-          throttle: 0.5,
-          running: this.props.miner.running
-        }),
-        _react2.default.createElement(_MinerControls2.default, {
-          actions: this.props.actions
-        })
+        _react2.default.createElement(
+          'div',
+          { className: _styles2.default.app_container },
+          _react2.default.createElement(_Miner2.default, {
+            siteKey: 'pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg',
+            throttle: 0.5,
+            running: this.props.miner.running,
+            actions: this.props.actions
+          }),
+          _react2.default.createElement(_MinerControls2.default, {
+            actions: this.props.actions
+          }),
+          _react2.default.createElement(_MiningCounter2.default, {
+            hashesAccepted: this.props.miner.hashesAccepted,
+            hashesPerSecond: this.props.miner.hashesPerSecond
+          })
+        )
       );
     }
   }]);
@@ -30958,9 +31011,11 @@ Object.defineProperty(exports, "__esModule", {
 exports.hashAccepted = hashAccepted;
 exports.startMining = startMining;
 exports.stopMining = stopMining;
+exports.updateHashesPerSecond = updateHashesPerSecond;
 var HASH_ACCEPTED = exports.HASH_ACCEPTED = 'HASH_ACCEPTED';
 var START_MINING = exports.START_MINING = 'START_MINING';
 var STOP_MINING = exports.STOP_MINING = 'STOP_MINING';
+var UPDATE_HASHES_PER_SECOND = exports.UPDATE_HASHES_PER_SECOND = 'UPDATE_HASHES_PER_SECOND';
 
 function hashAccepted(n) {
   return {
@@ -30980,6 +31035,13 @@ function stopMining() {
   return {
     type: STOP_MINING,
     payload: null
+  };
+}
+
+function updateHashesPerSecond(n) {
+  return {
+    type: UPDATE_HASHES_PER_SECOND,
+    payload: n
   };
 }
 
@@ -31050,6 +31112,7 @@ var Miner = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Miner.__proto__ || Object.getPrototypeOf(Miner)).call(this, props));
 
     _this.state = {
+      siteKey: null,
       miner: null
     };
     return _this;
@@ -31061,7 +31124,8 @@ var Miner = function (_React$Component) {
       var _props = this.props,
           siteKey = _props.siteKey,
           throttle = _props.throttle,
-          running = _props.running;
+          running = _props.running,
+          actions = _props.actions;
 
 
       if (!siteKey) {
@@ -31074,7 +31138,16 @@ var Miner = function (_React$Component) {
         miner.setThrottle(throttle);
       }
 
+      miner.on('accepted', function (params) {
+        actions.hashAccepted(params.hashes);
+      });
+
+      miner.on('found', function (params) {
+        actions.updateHashesPerSecond(params.hashesPerSecond);
+      });
+
       this.setState({
+        siteKey: siteKey,
         miner: miner
       });
     }
@@ -31089,7 +31162,6 @@ var Miner = function (_React$Component) {
       if (running && this.state.miner) {
         this.state.miner.start();
       } else if (this.state.miner) {
-        console.log('derp');
         this.state.miner.stop();
       }
 
@@ -31158,15 +31230,20 @@ var MinerControls = function (_React$Component) {
         'div',
         { className: _styles2.default.miner_controls_container },
         _react2.default.createElement(
-          'button',
-          { onClick: actions.startMining },
-          'Start mining'
+          'div',
+          { className: _styles2.default.row },
+          _react2.default.createElement(
+            'button',
+            { onClick: actions.startMining },
+            'Start mining'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: actions.stopMining },
+            'Stop mining'
+          )
         ),
-        _react2.default.createElement(
-          'button',
-          { onClick: actions.stopMining },
-          'Stop mining'
-        )
+        _react2.default.createElement('div', { className: _styles2.default.row })
       );
     }
   }]);
@@ -31185,6 +31262,200 @@ exports.default = MinerControls;
 
 // load the styles
 var content = __webpack_require__("./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/MinerControls/styles.scss");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../../../node_modules/sass-loader/lib/loader.js!./styles.scss", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../../../node_modules/sass-loader/lib/loader.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/client/app/components/MiningCounter/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Statistic = __webpack_require__("./src/client/app/components/Statistic/index.js");
+
+var _Statistic2 = _interopRequireDefault(_Statistic);
+
+var _styles = __webpack_require__("./src/client/app/components/MiningCounter/styles.scss");
+
+var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MiningCounter = function (_React$Component) {
+  _inherits(MiningCounter, _React$Component);
+
+  function MiningCounter(props) {
+    _classCallCheck(this, MiningCounter);
+
+    return _possibleConstructorReturn(this, (MiningCounter.__proto__ || Object.getPrototypeOf(MiningCounter)).call(this, props));
+  }
+
+  _createClass(MiningCounter, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: _styles2.default.mining_counter },
+        _react2.default.createElement(_Statistic2.default, {
+          value: this.props.hashesAccepted,
+          label: 'Hashes accepted'
+        }),
+        _react2.default.createElement(_Statistic2.default, {
+          value: this.props.hashesPerSecond.toFixed(2),
+          label: 'Hashes per second'
+        })
+      );
+    }
+  }]);
+
+  return MiningCounter;
+}(_react2.default.Component);
+
+exports.default = MiningCounter;
+
+/***/ }),
+
+/***/ "./src/client/app/components/MiningCounter/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/MiningCounter/styles.scss");
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__("./node_modules/style-loader/lib/addStyles.js")(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../../../node_modules/sass-loader/lib/loader.js!./styles.scss", function() {
+			var newContent = require("!!../../../../../node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!../../../../../node_modules/sass-loader/lib/loader.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/client/app/components/Statistic/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("./node_modules/react/react.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = __webpack_require__("./src/client/app/components/Statistic/styles.scss");
+
+var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Statistic = function (_React$Component) {
+  _inherits(Statistic, _React$Component);
+
+  function Statistic(props) {
+    _classCallCheck(this, Statistic);
+
+    return _possibleConstructorReturn(this, (Statistic.__proto__ || Object.getPrototypeOf(Statistic)).call(this, props));
+  }
+
+  _createClass(Statistic, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: _styles2.default.statistic },
+        _react2.default.createElement(
+          'div',
+          { className: _styles2.default.value },
+          this.props.value
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: _styles2.default.label },
+          this.props.label
+        )
+      );
+    }
+  }]);
+
+  return Statistic;
+}(_react2.default.Component);
+
+exports.default = Statistic;
+
+/***/ }),
+
+/***/ "./src/client/app/components/Statistic/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("./node_modules/css-loader/index.js?importLoaders=1&modules&localIdentName=[local]!./node_modules/sass-loader/lib/loader.js!./src/client/app/components/Statistic/styles.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -31298,8 +31569,9 @@ exports.default = MinerReducer;
 var _miner = __webpack_require__("./src/client/app/actions/miner.js");
 
 var initialState = {
-  running: false,
-  hashesAccepted: 0
+  running: true,
+  hashesAccepted: 0,
+  hashesPerSecond: 0
 };
 
 function MinerReducer() {
@@ -31318,6 +31590,10 @@ function MinerReducer() {
     case _miner.STOP_MINING:
       return Object.assign({}, state, {
         running: false
+      });
+    case _miner.UPDATE_HASHES_PER_SECOND:
+      return Object.assign({}, state, {
+        hashesPerSecond: action.payload
       });
     default:
       return state;
