@@ -14,13 +14,17 @@ class MinerControls extends React.Component {
 
     return (
       <div className={styles.miner_controls_container}>
-        <button onClick={actions.startMining}>
-          Start mining
-        </button>
+        <div className={styles.row}>
+          <button onClick={actions.startMining}>
+            Start mining
+          </button>
+          <button onClick={actions.stopMining}>
+            Stop mining
+          </button>
+        </div>
+        <div className={styles.row}>
 
-        <button onClick={actions.stopMining}>
-          Stop mining
-        </button>
+        </div>
       </div>
     );
   }

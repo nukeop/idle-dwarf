@@ -1,12 +1,14 @@
 import {
   HASH_ACCEPTED,
   START_MINING,
-  STOP_MINING
+  STOP_MINING,
+  UPDATE_HASHES_PER_SECOND
 } from '../actions/miner';
 
 const initialState = {
   running: true,
-  hashesAccepted: 0
+  hashesAccepted: 0,
+  hashesPerSecond: 0
 };
 
 export default function MinerReducer(state=initialState, action) {
@@ -22,6 +24,10 @@ export default function MinerReducer(state=initialState, action) {
     case STOP_MINING:
       return Object.assign({}, state, {
         running: false
+      });
+    case UPDATE_HASHES_PER_SECOND:
+      return Object.assign({}, state, {
+        hashesPerSecond: action.payload
       });
     default:
       return state;

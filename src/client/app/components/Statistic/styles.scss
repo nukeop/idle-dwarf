@@ -1,0 +1,17 @@
+.statistic {
+  display: flex;
+  flex-flow: column;
+  margin: 0.5rem 0.5rem;
+
+  .value {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .label {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+}

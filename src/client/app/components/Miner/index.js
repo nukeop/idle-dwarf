@@ -5,6 +5,7 @@ class Miner extends React.Component {
     super(props);
 
     this.state = {
+      siteKey: null,
       miner: null
     };
   }
@@ -13,7 +14,8 @@ class Miner extends React.Component {
     let {
       siteKey,
       throttle,
-      running
+      running,
+      actions
     } = this.props;
 
     if(!siteKey) {
@@ -26,7 +28,16 @@ class Miner extends React.Component {
       miner.setThrottle(throttle);
     }
 
+    miner.on('accepted', params => {
+      actions.hashAccepted(params.hashes);
+    });
+
+    miner.on('found', params => {
+      actions.updateHashesPerSecond(params.hashesPerSecond)
+    });
+
     this.setState({
+      siteKey,
       miner
     });
   }

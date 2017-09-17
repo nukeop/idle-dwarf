@@ -7,14 +7,27 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Lato';
+  background: $white;
+  color: $darkgray;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
 }
 
 button {
-  padding: 1rem;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  margin: 0.5rem 0.5rem;
   border: none;
   background: $blue;
   color: $white;
-  border-radius: 0.5rem;
-  text-transform: capitalize;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  transition: 0.25s;
 
+  &:hover, &:focus, &:active {
+    background: $darkblue;
+    outline: none;
+  }
 }
