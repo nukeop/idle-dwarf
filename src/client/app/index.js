@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 
-
 import './app.global.scss';
+import '../../../node_modules/font-awesome/scss/font-awesome.scss';
 
 import App from './App';
 import configureStore from './store/configureStore';

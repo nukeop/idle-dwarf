@@ -13,7 +13,7 @@ class MiningCounter extends React.Component {
   render() {
     return (
       <div className={styles.mining_counter}>
-        <div className={styles.row}>
+        <div className='row'>
           <Statistic
             inverted
             small
@@ -26,19 +26,19 @@ class MiningCounter extends React.Component {
             label='Mining is'
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           {this.props.children}
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <Statistic
             value={this.props.hashesAccepted}
             label='Total minerals mined'
           />
         </div>
-        <div className={styles.row}>
+        <div className='row'>
           <Statistic
               value={this.props.hashesPerSecond.toFixed(2)}
-              label='Minerals per second'
+              label='Minerals/s'
           />
         </div>
       </div>

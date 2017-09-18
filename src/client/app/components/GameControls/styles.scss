@@ -1,6 +1,7 @@
-.miner_controls_container {
+@import '../../colors';
+
+.game_controls {
   display: flex;
   flex-flow: column;
-  flex: 1 1 auto;
   justify-content: center;
 }

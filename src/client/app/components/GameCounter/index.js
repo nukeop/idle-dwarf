@@ -17,14 +17,14 @@ class GameCounter extends React.Component {
           <Statistic
             small
             value={this.props.minerals}
-            label='Minerals'
+            label={<div><FontAwesome name='diamond'/> Minerals</div>}
           />
         </div>
         <div className={styles.row}>
           <Statistic
             small
             value={this.props.crowns}
-            label={<div><FontAwesome name='shekel'/>Crowns</div>}
+            label={<div><FontAwesome name='shekel'/> Crowns</div>}
           />
         </div>
       </div>

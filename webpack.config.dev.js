@@ -39,6 +39,9 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         include: RESOURCES_DIR
+      }, {
+        test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader : 'file-loader'
       }
     ]
   },

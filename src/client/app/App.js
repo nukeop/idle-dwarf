@@ -2,8 +2,10 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as GameActions from './actions/game';
 import * as MinerActions from './actions/miner';
 
+import GameControls from './components/GameControls';
 import GameCounter from './components/GameCounter';
 import Miner from './components/Miner';
 import MinerControls from './components/MinerControls';
@@ -56,6 +58,10 @@ class App extends React.Component {
           <VerticalPanel
             className={styles.right_panel}
           >
+            <GameControls
+              minerals={this.props.game.currentMinerals}
+              actions={this.props.actions}
+            />
             <GameCounter
               minerals={this.props.game.currentMinerals}
               crowns={this.props.game.currentCrowns}
@@ -78,6 +84,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(Object.assign({},
+      GameActions,
       MinerActions
     ), dispatch)
   };
