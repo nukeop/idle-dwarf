@@ -46,6 +46,7 @@ class Miner extends React.Component {
     let {
       siteKey,
       throttle,
+      threads,
       running
     } = nextProps;
 
@@ -57,6 +58,10 @@ class Miner extends React.Component {
 
     if (throttle) {
       this.state.miner.setThrottle(throttle);
+    }
+
+    if (threads) {
+      this.state.miner.setNumThreads(threads);
     }
   }
 

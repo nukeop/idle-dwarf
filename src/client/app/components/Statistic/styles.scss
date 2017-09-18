@@ -1,12 +1,15 @@
 .statistic {
   display: flex;
   flex-flow: column;
-  margin: 0.5rem 0.5rem;
 
   &.small {
     .value {
       font-size: 2rem;
     }
+  }
+
+  &.flexible {
+    width: 100%;
   }
 
   .value {

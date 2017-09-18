@@ -13,10 +13,19 @@
   }
 }
 
+.status {
+  box-sizing: border-box;
+  padding: 0.75rem 1rem 0.75rem 1rem;
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+  color: $white;
+  transition: 0.5s;
+}
+
 .red {
-  color: $red;
+  background: $red;
 }
 
 .green {
-  color: $green;
+  background: $green;
 }

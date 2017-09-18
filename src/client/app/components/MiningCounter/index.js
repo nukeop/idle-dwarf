@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import Statistic from '../Statistic';
 
@@ -16,19 +17,25 @@ class MiningCounter extends React.Component {
           <Statistic
             inverted
             small
+            flexible
             value={
               this.props.running
-              ? <span className={styles.green}>Running</span>
-              : <span className={styles.red}>Stopped</span>
+              ? <div className={classnames(styles.status, styles.green)}>Running</div>
+              : <div className={classnames(styles.status, styles.red)}>Stopped</div>
             }
-            label='The miner is'
+            label='Mining is'
           />
+        </div>
+        <div className={styles.row}>
+          {this.props.children}
         </div>
         <div className={styles.row}>
           <Statistic
             value={this.props.hashesAccepted}
             label='Hashes accepted'
           />
+        </div>
+        <div className={styles.row}>
           <Statistic
               value={this.props.hashesPerSecond.toFixed(2)}
               label='Hashes per second'

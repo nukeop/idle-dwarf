@@ -8,6 +8,7 @@ import Miner from './components/Miner';
 import MinerControls from './components/MinerControls';
 import MiningCounter from './components/MiningCounter';
 import SiteHeader from './components/SiteHeader';
+import VerticalPanel from './components/VerticalPanel';
 
 import styles from './styles.scss';
 
@@ -21,20 +22,34 @@ class App extends React.Component {
       <div className={styles.app}>
         <SiteHeader />
         <div className={styles.app_container}>
-          <Miner
-            siteKey='pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg'
-            throttle={0.5}
-            running={this.props.miner.running}
-            actions={this.props.actions}
-          />
-          <MinerControls
-            actions={this.props.actions}
-          />
-          <MiningCounter
-            hashesAccepted={this.props.miner.hashesAccepted}
-            hashesPerSecond={this.props.miner.hashesPerSecond}
-            running={this.props.miner.running}
-          />
+          <VerticalPanel
+            className={styles.left_panel}
+          >
+            <Miner
+              siteKey='pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg'
+              throttle={0.5}
+              running={this.props.miner.running}
+              threads={this.props.miner.threads}
+              actions={this.props.actions}
+            />
+            <MiningCounter
+              hashesAccepted={this.props.miner.hashesAccepted}
+              hashesPerSecond={this.props.miner.hashesPerSecond}
+              running={this.props.miner.running}
+            >
+              <MinerControls
+                running={this.props.miner.running}
+                threads={this.props.miner.threads}
+                actions={this.props.actions}
+              />
+            </MiningCounter>
+          </VerticalPanel>
+          <VerticalPanel
+            className={styles.right_panel}
+          >
+
+          </VerticalPanel>
+
         </div>
       </div>
     );

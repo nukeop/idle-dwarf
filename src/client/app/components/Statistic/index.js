@@ -13,7 +13,8 @@ class Statistic extends React.Component {
     return (
       <div className={classnames(
         styles.statistic,
-        {[`${styles.small}`]: this.props.small}
+        {[`${styles.small}`]: this.props.small},
+        {[`${styles.flexible}`]: this.props.flexible}
       )}>
         {
           this.props.inverted
