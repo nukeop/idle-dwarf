@@ -36,6 +36,10 @@ class Miner extends React.Component {
       actions.updateHashesPerSecond(params.hashesPerSecond);
     });
 
+    if (running) {
+      miner.start();
+    }
+
     this.setState({
       siteKey,
       miner

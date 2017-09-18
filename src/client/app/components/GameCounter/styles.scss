@@ -1,0 +1,14 @@
+@import '../../colors';
+
+.game_counter {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+  .row {
+    display: flex;
+    flex-flow: row;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}

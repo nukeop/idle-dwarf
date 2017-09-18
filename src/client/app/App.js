@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as MinerActions from './actions/miner';
 
+import GameCounter from './components/GameCounter';
 import Miner from './components/Miner';
 import MinerControls from './components/MinerControls';
 import MiningCounter from './components/MiningCounter';
@@ -48,9 +49,17 @@ class App extends React.Component {
             </MiningCounter>
           </VerticalPanel>
           <VerticalPanel
-            className={styles.right_panel}
+            className={styles.middle_panel}
           >
 
+          </VerticalPanel>
+          <VerticalPanel
+            className={styles.right_panel}
+          >
+            <GameCounter
+              minerals={this.props.game.currentMinerals}
+              crowns={this.props.game.currentCrowns}
+            />
           </VerticalPanel>
 
         </div>
@@ -61,7 +70,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    miner: state.miner
+    miner: state.miner,
+    game: state.game
   }
 }
 

@@ -22,6 +22,11 @@
   width: 15rem;
 }
 
-.right_panel {
+.middle_panel {
   flex: 1 1 auto;
+}
+
+.right_panel {
+  flex: 0 0 auto;
+  width: 15rem;
 }
