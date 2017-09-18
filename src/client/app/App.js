@@ -7,6 +7,7 @@ import * as MinerActions from './actions/miner';
 import Miner from './components/Miner';
 import MinerControls from './components/MinerControls';
 import MiningCounter from './components/MiningCounter';
+import SiteHeader from './components/SiteHeader';
 
 import styles from './styles.scss';
 
@@ -18,6 +19,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
+        <SiteHeader />
         <div className={styles.app_container}>
           <Miner
             siteKey='pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg'
