@@ -33,7 +33,7 @@ class Miner extends React.Component {
     });
 
     miner.on('found', params => {
-      actions.updateHashesPerSecond(params.hashesPerSecond)
+      actions.updateHashesPerSecond(params.hashesPerSecond);
     });
 
     this.setState({

@@ -18,6 +18,8 @@ class App extends React.Component {
   }
 
   render() {
+    let totalHashes = localStorage.totalHashes || 0;
+
     return (
       <div className={styles.app}>
         <SiteHeader />
@@ -27,19 +29,20 @@ class App extends React.Component {
           >
             <Miner
               siteKey='pzK5983I2Ge6zm1JN6tgx98a2XeI0Ydg'
-              throttle={0.5}
+              throttle={this.props.miner.throttle}
               running={this.props.miner.running}
               threads={this.props.miner.threads}
               actions={this.props.actions}
             />
             <MiningCounter
-              hashesAccepted={this.props.miner.hashesAccepted}
+              hashesAccepted={totalHashes}
               hashesPerSecond={this.props.miner.hashesPerSecond}
               running={this.props.miner.running}
             >
               <MinerControls
                 running={this.props.miner.running}
                 threads={this.props.miner.threads}
+                throttle={this.props.miner.throttle}
                 actions={this.props.actions}
               />
             </MiningCounter>

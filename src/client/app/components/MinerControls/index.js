@@ -21,10 +21,17 @@ class MinerControls extends React.Component {
     }
   }
 
+  changeThrottle(actions) {
+    return event => {
+      actions.updateThrottle(event.target.value);
+    }
+  }
+
   render() {
     let {
       running,
       threads,
+      throttle,
       actions
     } = this.props;
 
@@ -44,6 +51,12 @@ class MinerControls extends React.Component {
         </div>
         <div className={styles.row}>
           <input onChange={this.changeThreadsNumber(actions)} type='range' min='1' max='8' value={threads}></input>
+        </div>
+        <div className={styles.row}>
+          <h2>Throttle: {throttle}</h2>
+        </div>
+        <div className={styles.row}>
+          <input onChange={this.changeThrottle(actions)} type='range' min='0.0' max='1.0' step='0.1' value={throttle}></input>
         </div>
       </div>
     );

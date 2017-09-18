@@ -32,13 +32,13 @@ class MiningCounter extends React.Component {
         <div className={styles.row}>
           <Statistic
             value={this.props.hashesAccepted}
-            label='Hashes accepted'
+            label='Total minerals mined'
           />
         </div>
         <div className={styles.row}>
           <Statistic
               value={this.props.hashesPerSecond.toFixed(2)}
-              label='Hashes per second'
+              label='Minerals per second'
           />
         </div>
       </div>
