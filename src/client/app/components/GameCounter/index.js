@@ -23,7 +23,7 @@ class GameCounter extends React.Component {
         <div className={styles.row}>
           <Statistic
             small
-            value={this.props.crowns}
+            value={this.props.crowns.toFixed(1)}
             label={<div><FontAwesome name='shekel'/> Crowns</div>}
           />
         </div>

@@ -19,14 +19,10 @@ export default function GameReducer(state=initialState, action) {
         currentMinerals: state.currentMinerals + 256
       });
     case SELL_MINERALS:
-      if (action.payload <= state.currentMinerals) {
-        return Object.assign({}, state, {
-          currentMinerals: state.currentMinerals - action.payload,
-          currentCrowns: state.currentCrowns + action.payload * state.mineralExchangeRate
-        });
-      } else {
-        return state;
-      }
+      return Object.assign({}, state, {
+        currentMinerals: state.currentMinerals - action.payload,
+        currentCrowns: state.currentCrowns + action.payload * state.mineralExchangeRate
+      });
     default:
       return state;
   }
