@@ -21,8 +21,6 @@ class App extends React.Component {
   }
 
   render() {
-    let totalHashes = localStorage.totalHashes || 0;
-
     return (
       <div className={styles.app}>
         <SiteHeader />
@@ -38,7 +36,7 @@ class App extends React.Component {
               actions={this.props.actions}
             />
             <MiningCounter
-              hashesAccepted={totalHashes}
+              hashesAccepted={this.props.miner.hashesAccepted}
               hashesPerSecond={this.props.miner.hashesPerSecond}
               running={this.props.miner.running}
             >
@@ -59,6 +57,7 @@ class App extends React.Component {
             className={styles.right_panel}
           >
             <GameControls
+              mineralExchangeRate={this.props.game.mineralExchangeRate}
               minerals={this.props.game.currentMinerals}
               actions={this.props.actions}
             />

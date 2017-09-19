@@ -1,6 +1,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import ReduxPromise from 'redux-promise';
+import persistState from 'redux-localstorage';
 
 import rootReducer from '../reducers';
 
@@ -11,9 +12,10 @@ export default function configureStore(initialState) {
     rootReducer,
     initialState,
     composeEnhancers(
-      applyMiddleware(ReduxPromise, thunk)
+      applyMiddleware(ReduxPromise, thunk),
+      persistState()
     )
   );
 
-  return store
+  return store;
 }

@@ -1,5 +1,3 @@
-import { addOrCreate } from '../utils/localstorage';
-
 export const HASH_ACCEPTED = 'HASH_ACCEPTED';
 export const START_MINING = 'START_MINING';
 export const STOP_MINING = 'STOP_MINING';
@@ -8,8 +6,6 @@ export const UPDATE_THREADS_NUMBER = 'UPDATE_THREADS_NUMBER';
 export const UPDATE_THROTTLE = 'UPDATE_THROTTLE';
 
 export function hashAccepted(n) {
-  addOrCreate('totalHashes', 256);
-
   return {
     type: HASH_ACCEPTED,
     payload: n
