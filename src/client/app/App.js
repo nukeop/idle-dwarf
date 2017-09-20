@@ -12,6 +12,7 @@ import MinerControls from './components/MinerControls';
 import MiningCounter from './components/MiningCounter';
 import SiteHeader from './components/SiteHeader';
 import VerticalPanel from './components/VerticalPanel';
+import Tabs from './components/Tabs';
 
 import styles from './styles.scss';
 
@@ -51,7 +52,10 @@ class App extends React.Component {
           <VerticalPanel
             className={styles.middle_panel}
           >
-
+            <Tabs
+              activeIndex={0}
+              tabs={['Your Mine', 'Achievements', 'Settings']}
+            />
           </VerticalPanel>
           <VerticalPanel
             className={styles.right_panel}

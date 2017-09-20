@@ -26,9 +26,16 @@ button {
   text-transform: uppercase;
   transition: 0.25s;
 
-  &:hover, &:focus, &:active {
-    background: $darkblue;
+  &:hover, &:active, &:focus {
     outline: none;
+  }
+
+  &:hover {
+    background: $darkblue;
+  }
+
+  &:active {
+    background: $lightblue;
   }
 }
 

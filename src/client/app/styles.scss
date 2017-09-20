@@ -23,7 +23,10 @@
 }
 
 .middle_panel {
+  display: flex;
+  flex-flow: column;
   flex: 1 1 auto;
+  justify-content: flex-start;
 }
 
 .right_panel {
