@@ -19,6 +19,10 @@ import styles from './styles.scss';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      activeTab: 0
+    };
   }
 
   render() {
@@ -53,8 +57,9 @@ class App extends React.Component {
             className={styles.middle_panel}
           >
             <Tabs
-              activeIndex={0}
+              activeIndex={this.state.activeTab}
               tabs={['Your Mine', 'Achievements', 'Settings']}
+              onTabClicked={tabIndex => {this.setState({activeTab: tabIndex})}}
             />
           </VerticalPanel>
           <VerticalPanel

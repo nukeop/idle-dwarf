@@ -8,15 +8,26 @@ class Tabs extends React.Component {
     super(props);
   }
 
-  renderTabs(tabs, activeIndex) {
+  onTabClicked(index, fun) {
+    return () => {
+      if (fun) {
+        fun(index);
+      }
+    };
+  }
+
+  renderTabs(tabs, activeIndex, onTabClicked) {
     return tabs.map((tab, i) => {
       return (
         <div className={
-          classnames(
-            styles.tab,
-            {[`${styles.active}`]: i === activeIndex  }
-          )
-        }>
+            classnames(
+              styles.tab,
+              {[`${styles.active}`]: i === activeIndex  }
+            )
+          }
+          onClick={this.onTabClicked(i, onTabClicked)}
+          key={i}
+        >
           {tab}
         </div>
       );
@@ -27,13 +38,14 @@ class Tabs extends React.Component {
     let {
       activeIndex,
       tabs,
-      panes
+      panes,
+      onTabClicked
     } = this.props;
 
     return (
       <div className={styles.tabs_container}>
         <div className={styles.tabs}>
-          {this.renderTabs(tabs, activeIndex)}
+          {this.renderTabs(tabs, activeIndex, onTabClicked)}
         </div>
 
         <div className={styles.pane}>
