@@ -14,6 +14,9 @@ import SiteHeader from './components/SiteHeader';
 import VerticalPanel from './components/VerticalPanel';
 import Tabs from './components/Tabs';
 
+// Panes
+import MinePane from './components/MinePane';
+
 import styles from './styles.scss';
 
 class App extends React.Component {
@@ -58,7 +61,8 @@ class App extends React.Component {
           >
             <Tabs
               activeIndex={this.state.activeTab}
-              tabs={['Your Mine', 'Achievements', 'Settings']}
+              tabs={['Your Mine', 'Upgrades', 'Achievements', 'Settings']}
+              panes={[<MinePane />]}
               onTabClicked={tabIndex => {this.setState({activeTab: tabIndex})}}
             />
           </VerticalPanel>

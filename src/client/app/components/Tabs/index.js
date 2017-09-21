@@ -34,6 +34,14 @@ class Tabs extends React.Component {
     });
   }
 
+  renderPanes(panes, activeIndex) {
+    if (panes.length >= activeIndex) {
+      return panes[activeIndex];
+    } else {
+      return null;
+    }
+  }
+
   render() {
     let {
       activeIndex,
@@ -49,7 +57,7 @@ class Tabs extends React.Component {
         </div>
 
         <div className={styles.pane}>
-
+          {this.renderPanes(panes, activeIndex)}
         </div>
       </div>
     );
