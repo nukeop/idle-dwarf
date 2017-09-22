@@ -13,7 +13,7 @@ class MinePane extends React.Component {
     return (
       <div className={styles.mine_pane}>
         <BuildingsList
-          buildings={this.props.buildings}
+          currentBuildings={this.props.currentBuildings}
           crowns={this.props.crowns}
         />
       </div>

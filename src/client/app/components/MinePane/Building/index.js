@@ -16,6 +16,7 @@ class Building extends React.Component {
       number,
       price,
       production,
+      totalProduction,
       crowns
     } = this.props;
 
@@ -25,12 +26,12 @@ class Building extends React.Component {
           <h1>{number}</h1>
         </div>
         <div className={styles.building_center}>
-          <div>{name}</div>
+          <div>{name} <span className={styles.production}>({production})</span></div>
           <div className={classnames(styles.price, {'green': (price <= crowns)})}><FontAwesome name='shekel'/> {price}</div>
           <div className={styles.description}>{description}</div>
         </div>
         <div className={styles.building_right}>
-          <div>{production}</div>
+          <div>{totalProduction}</div>
         </div>
       </div>
     );

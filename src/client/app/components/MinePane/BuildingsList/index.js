@@ -11,21 +11,22 @@ class BuildingsList extends React.Component {
 
   render() {
     let {
-      buildings,
+      currentBuildings,
       crowns
     } = this.props;
 
     return (
       <div className={styles.buildings_list}>
         {
-          buildings.map(building => {
+          currentBuildings.map(building => {
             return (
               <Building
                 name={building.name}
                 description={building.description}
-                number={0}
+                number={building.number}
                 price={building.initialPrice}
                 production={`+${building.bonus * 100}%`}
+                totalProduction={`+${building.bonus * building.number * 100}%`}
                 crowns={crowns}
               />
             )

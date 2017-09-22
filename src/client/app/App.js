@@ -31,6 +31,7 @@ class App extends React.Component {
   componentWillMount() {
     // Global init
     this.props.actions.loadBuildingsDefinitions();
+    this.props.actions.initCurrentBuildings();
   }
 
   render() {
@@ -69,7 +70,8 @@ class App extends React.Component {
               tabs={['Your Mine', 'Upgrades', 'Achievements', 'Settings']}
               panes={[
                 <MinePane
-                  buildings={this.props.game.buildingsDefinitions}
+                  buildingsDefinitions={this.props.game.buildingsDefinitions}
+                  currentBuildings={this.props.game.currentBuildings}
                   crowns={this.props.game.currentCrowns}
                 />
               ]}
