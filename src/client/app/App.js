@@ -28,6 +28,11 @@ class App extends React.Component {
     };
   }
 
+  componentWillMount() {
+    // Global init
+    this.props.actions.loadBuildingsDefinitions();
+  }
+
   render() {
     return (
       <div className={styles.app}>
@@ -62,7 +67,12 @@ class App extends React.Component {
             <Tabs
               activeIndex={this.state.activeTab}
               tabs={['Your Mine', 'Upgrades', 'Achievements', 'Settings']}
-              panes={[<MinePane />]}
+              panes={[
+                <MinePane
+                  buildings={this.props.game.buildingsDefinitions}
+                  crowns={this.props.game.currentCrowns}
+                />
+              ]}
               onTabClicked={tabIndex => {this.setState({activeTab: tabIndex})}}
             />
           </VerticalPanel>

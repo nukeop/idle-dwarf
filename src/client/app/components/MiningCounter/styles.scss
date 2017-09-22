@@ -13,12 +13,12 @@
   border-radius: 0.25rem;
   color: $white;
   transition: 0.5s;
-}
 
-.red {
-  background: $red;
-}
+  &.red {
+    background: $red;
+  }
 
-.green {
-  background: $green;
+  &.green {
+    background: $green;
+  }
 }

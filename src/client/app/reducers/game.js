@@ -3,10 +3,12 @@ import {
 } from '../actions/miner';
 
 import {
-  SELL_MINERALS
+  SELL_MINERALS,
+  LOAD_BUILDINGS_DEFINITIONS
 } from '../actions/game';
 
 const initialState = {
+  buildingsDefinitions: [],
   currentMinerals: 0,
   currentCrowns: 0,
   mineralExchangeRate: 0.1
@@ -23,6 +25,12 @@ export default function GameReducer(state=initialState, action) {
         currentMinerals: state.currentMinerals - action.payload,
         currentCrowns: state.currentCrowns + action.payload * state.mineralExchangeRate
       });
+    case LOAD_BUILDINGS_DEFINITIONS:
+      if(!state.buildingsDefinitions) {
+        return Object.assign({}, state, {
+          buildingsDefinitions: action.payload.buildingsDefinitions
+        });
+      }
     default:
       return state;
   }
