@@ -15,6 +15,7 @@ class MinePane extends React.Component {
         <BuildingsList
           currentBuildings={this.props.currentBuildings}
           crowns={this.props.crowns}
+          buyBuilding={this.props.buyBuilding}
         />
       </div>
     );

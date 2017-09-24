@@ -9,6 +9,12 @@ class BuildingsList extends React.Component {
     super(props);
   }
 
+  buyBuilding(buildingName, currentBuildings, currentCrowns) {
+    return () => {
+      this.props.buyBuilding(buildingName, 1, currentBuildings, currentCrowns);
+    }
+  }
+
   render() {
     let {
       currentBuildings,
@@ -28,6 +34,7 @@ class BuildingsList extends React.Component {
                 production={`+${building.bonus * 100}%`}
                 totalProduction={`+${building.bonus * building.number * 100}%`}
                 crowns={crowns}
+                buyBuilding={this.buyBuilding(building.name, currentBuildings, crowns)}
               />
             )
           })

@@ -72,6 +72,7 @@ class App extends React.Component {
                 <MinePane
                   buildingsDefinitions={this.props.game.buildingsDefinitions}
                   currentBuildings={this.props.game.currentBuildings}
+                  buyBuilding={this.props.actions.buyBuilding}
                   crowns={this.props.game.currentCrowns}
                 />
               ]}

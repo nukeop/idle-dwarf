@@ -21,7 +21,7 @@ class Building extends React.Component {
     } = this.props;
 
     return (
-      <div className={classnames(styles.building_container, {'green': (price <= crowns)})}>
+      <div onClick={this.props.buyBuilding} className={classnames(styles.building_container, {'green': (price <= crowns)})}>
         <div className={styles.building_left}>
           <h1>{number}</h1>
         </div>
