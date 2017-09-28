@@ -9,11 +9,17 @@ import {
   BUY_BUILDING
 } from '../actions/game';
 
+import {
+  totalMiningBonus
+} from '../utils/game';
+
 const initialState = {
   buildingsDefinitions: [],
   currentBuildings: [],
   currentMinerals: 0,
   currentCrowns: 0,
+  allTimeMinerals: 0,
+  allTimeCrowns: 0,
   mineralExchangeRate: 0.1,
   totalBonus: 0
 };
@@ -44,7 +50,8 @@ export default function GameReducer(state=initialState, action) {
     case BUY_BUILDING:
       return Object.assign({}, state, {
         currentBuildings: action.payload.currentBuildings,
-        currentCrowns: state.currentCrowns - action.payload.price
+        currentCrowns: state.currentCrowns - action.payload.price,
+        totalBonus: totalMiningBonus(action.payload.currentBuildings)
       });
     default:
       return state;

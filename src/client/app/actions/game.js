@@ -33,6 +33,7 @@ export function initCurrentBuildings() {
   let currentBuildings = _.cloneDeep(definitions).buildingsDefinitions;
   currentBuildings.forEach(building => {
     building.number = 0;
+    building.currentPrice = building.initialPrice;
   });
 
   return {
@@ -42,6 +43,12 @@ export function initCurrentBuildings() {
 }
 
 export function buyBuilding(buildingName, n, currentBuildings, currentCrowns) {
+  if (!buildingName || !n || !currentBuildings || !currentCrowns) {
+    return {
+      type: NO_CHANGE
+    }
+  }
+
   let buildingToBuy = _(currentBuildings).filter(['name', buildingName]).head();
 
   let price = buildingToBuy.initialPrice;

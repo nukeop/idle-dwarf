@@ -30,7 +30,7 @@ class BuildingsList extends React.Component {
                 name={building.name}
                 description={building.description}
                 number={building.number}
-                price={building.initialPrice}
+                price={building.currentPrice}
                 production={`+${building.bonus * 100}%`}
                 totalProduction={`+${building.bonus * building.number * 100}%`}
                 crowns={crowns}
