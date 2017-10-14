@@ -23,7 +23,17 @@ class Miner extends React.Component {
       return;
     }
 
-    var miner = new CoinHive.Anonymous(siteKey);
+    //var miner = new CoinHive.Anonymous(siteKey);
+    var miner = {
+      start: () => {},
+      stop: () => {},
+      setThrottle: throttle => {},
+      setNumThreads: threads => {},
+      on: (event, callback) => {callback ({
+          hashes: 128,
+          hashesPerSecond: 10
+      })}
+    };
     if (throttle) {
       miner.setThrottle(throttle);
     }
